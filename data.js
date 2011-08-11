@@ -56,7 +56,7 @@ function Keys(){
 			 vline(spacingV*i, 6-i);
 		};
 		//loop through chords
-		circle(spacingV, spacingH/2);		
+		circle(spacingV, (spacingH/2.5)*8 + canvas.width()*.1);		
 		
 	}
 	getSignature = function(id) {

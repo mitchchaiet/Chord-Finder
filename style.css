@@ -41,7 +41,7 @@ header {
 #results {
 	display:none;
 	margin: 0 auto;
-	width: 585px;
+	width: 500px;
 }
 #results canvas {
 	margin: 0 auto;
