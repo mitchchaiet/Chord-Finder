@@ -40,11 +40,12 @@ header {
 /* Results */
 #results {
 	display:none;
+	margin: 0 auto;
+	width: 585px;
 }
-
-/* Chords */
-#chord canvas {
+#results canvas {
 	border: 1px solid #999;
+	width: 100%;
 }
 
 /* Footer */

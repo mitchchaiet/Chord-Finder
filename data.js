@@ -5,29 +5,46 @@ function Keys(){
 	var yCord = [{"y":"75"},{"y":""},{"y":""},{"y":""},{"y":""},{"y":""}];
 
 	//get a reference to the canvas
-	var canvas = $('#chord canvas');
+	var canvas = $('#results canvas');
+	var canvasW = canvas.width();
+	var canvasH = canvas.height();
 	var ctx = $(canvas)[0].getContext("2d");
 
 	// private functions
-	var circle = function(x, y) {
+	circle = function(x, y, color) {
+		ctx.fillStyle = 'grey';
 		ctx.beginPath();
 		ctx.arc(x, y, 10, 0, Math.PI*2, true); 
 		ctx.closePath();
 		ctx.fill();
 	}
-	var buildGrid = function() {
+	vline = function(x, y, color) {
+		ctx.beginPath();
+	    ctx.moveTo(10,0);
+	    ctx.lineTo(10,canvas.height());
+		ctx.strokeStyle = "black";
+	    ctx.stroke();
+	}
+	buildGrid = function(k) {
+		// Get api placement
+		
+		$('#results').show();
+		
+		// print canvas
+		//loop through chords
+		circle(10, 50);
+	    
+	    console.log(canvas.height());
+		
 		
 	}
-	var getSignature = function(id) {
+	getSignature = function(id) {
 		return keys[id].signature;
 	}
 	
 	return {
 		init: function(){
-			ctx.beginPath();
-			ctx.arc(75, 75, 10, 0, Math.PI*2, true); 
-			ctx.closePath();
-			ctx.fill();
+
 			// create keys
 			$.each(keys, function(i, v) { 
 				$('#key ul').append('<li rel="'+i+'">'+v.key+'</li>');
@@ -36,12 +53,14 @@ function Keys(){
 			$('#key ul li').live('click', function(event) {
 				id = $(this).attr('rel');
 				
-				circle(yCord[getSignature(id)].y, yCord[getSignature(id)].y);
+				buildGrid(keys[id]);
+				
+				
 				console.log('Key ID: '+id);
 				console.log('Signature: '+getSignature(id));
-				console.log(yCord[getSignature(id)].y);
+				console.log(canvas.height());
 			});
-			
+			/*
 			window.onresize = function() {
 			    var C = 0.8;        // canvas width to viewport width ratio
 			    var W_TO_H = 2/1;   // canvas width to canvas height ratio
@@ -50,29 +69,8 @@ function Keys(){
 			    var viewportWidth = window.innerWidth;
 			    var viewportHeight = window.innerHeight;
 
-			    var canvasWidth = viewportWidth * C;
-			    var canvasHeight = canvasWidth / W_TO_H;
-//			    canvas.style.position = "fixed";
-//				canvas.css({"position":"fixed", "width": canvasWidth, "height": canvasHeight});
-				canvas.css({"width": canvasWidth, "height": canvasHeight});
-			    canvas.style.top = (viewportHeight - canvasHeight) / 2;
-			    canvas.style.left = (viewportWidth - canvasWidth) / 2;
-			
-				ctx.beginPath();
-				ctx.arc(75, 75, 10, 0, Math.PI*2, true); 
-				ctx.closePath();
-				ctx.fill();
-/*
-//			    ctx.clearRect(0,0,canvasWidth,canvasHeight);
-			    ctx.fillStyle = 'yellow';
-			    ctx.moveTo(0, canvasHeight/2);
-			    ctx.lineTo(canvasWidth/2, 0);
-			    ctx.lineTo(canvasWidth, canvasHeight/2);
-			    ctx.lineTo(canvasWidth/2, canvasHeight);
-			    ctx.lineTo(0, canvasHeight/2);
-			    ctx.fill();
-*/
 			}
+			*/
 		}
 		
 	}
