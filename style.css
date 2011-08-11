@@ -44,8 +44,9 @@ header {
 	width: 585px;
 }
 #results canvas {
+	margin: 0 auto;
+	width: 80%;
 	border: 1px solid #999;
-	width: 100%;
 }
 
 /* Footer */

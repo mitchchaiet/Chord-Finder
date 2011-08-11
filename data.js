@@ -6,20 +6,17 @@ function Keys(){
 
 	//get a reference to the canvas
 	var canvas = $('#results canvas');
-	var canvasW = canvas.width();
-	var canvasH = canvas.height();
 	var ctx = $(canvas)[0].getContext("2d");
 
 	// private functions
 	circle = function(x, y, color) {
 		ctx.fillStyle = 'grey';
 		ctx.beginPath();
-		ctx.arc(x, y, 10, 0, Math.PI*2, true); 
+		ctx.arc(x, y, canvas.height()*.01, 0, Math.PI*2, false); 
 		ctx.closePath();
 		ctx.fill();
 	}
 	vline = function(x, w, color) {
-	
 		ctx.lineWidth = w;
 		ctx.beginPath();
 	    ctx.moveTo(x,0);
@@ -27,23 +24,35 @@ function Keys(){
 		ctx.strokeStyle = "black";
 	    ctx.stroke();
 	}
+	hline = function(y, w, color) {
+		ctx.lineWidth = w;
+		ctx.beginPath();
+	    ctx.moveTo(0,y);
+	    ctx.lineTo(canvas.width(),y);
+		ctx.strokeStyle = "black";
+	    ctx.stroke();
+	}
 	buildGrid = function(k) {
 		// Get api placement
 		
 		$('#results').show();
-		
+		canvas.attr('height', canvas.width()*2);
+		var spacingH = canvas.height()%250;
+		var spacingV = canvas.width()%60;
 		// print canvas
-		// Create horizontal lines
+		// base 0
+		hline(0, canvas.width()*.1);
 		
 		// Create horizontal lines
+		for (var i=1; i < 5; i++) {
+			 hline(spacingH*i, 1);
+		};
+		// Create vertical lines
 		for (var i=1; i < 6; i++) {
-			 vline((canvas.width()/12)*i, 6-i);
+			 vline(spacingV*i, 6-i);
 		};
 		//loop through chords
-		circle(canvas.width()/12, 50);
-	   
-	    console.log(canvas.height());
-		
+		circle(canvas.width()%60, 50);		
 		
 	}
 	getSignature = function(id) {
@@ -52,7 +61,7 @@ function Keys(){
 	
 	return {
 		init: function(){
-
+			
 			// create keys
 			$.each(keys, function(i, v) { 
 				$('#key ul').append('<li rel="'+i+'">'+v.key+'</li>');
@@ -60,8 +69,10 @@ function Keys(){
 			// live event for keys
 			$('#key ul li').live('click', function(event) {
 				id = $(this).attr('rel');
-				
+				// Build Grid 
 				buildGrid(keys[id]);
+				// assign rel as ref to resize canvas
+				canvas.attr('rel', id);
 				
 				
 				console.log('Key ID: '+id);
@@ -70,13 +81,10 @@ function Keys(){
 			});
 			/*
 			window.onresize = function() {
-			    var C = 0.8;        // canvas width to viewport width ratio
-			    var W_TO_H = 2/1;   // canvas width to canvas height ratio
-
-			    // For IE compatibility http://www.google.com/search?q=get+viewport+size+js
-			    var viewportWidth = window.innerWidth;
-			    var viewportHeight = window.innerHeight;
-
+//			    reference :http://stackoverflow.com/questions/1152203/centering-a-canvas/1646370#1646370
+				// resize canvas
+				// if canvas.rel
+					// build grid with canvas.rel
 			}
 			*/
 		}
