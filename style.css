@@ -7,11 +7,17 @@ header {
 	padding: 20px;
 	color: #fff;
 }
+
 /* General */
 .instructions {
 	margin: .5em 0 1em;
 }
+
 /* Keys */
+#key {
+	margin: 0 auto;
+	width: 585px;
+}
 #key ul li {
 	background-color: #e5e5e5;
 	display: inline-block;
@@ -31,6 +37,10 @@ header {
 	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,.35);
 	background-color: #fff;
 }
+/* Results */
+#results {
+	display:none;
+}
 
 /* Chords */
 #chord canvas {
@@ -47,4 +57,16 @@ footer {
 }
 footer a {
 	color: #999;
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+}
+
+/* Wide Mobile */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
 }
