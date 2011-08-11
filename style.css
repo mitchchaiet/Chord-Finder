@@ -27,14 +27,14 @@ header {
 	line-height: 160%;
 	text-align: center;
 	margin: 5px;
-	-webkit-border-radius: .1em;
+	border-radius: .1em;
 	color: rgba(255,255,255,1);
 }
 #key ul li:hover {
 	cursor: pointer;
 	color: #00CCFF;
 	text-shadow: 0 0 .05em #0099CC;
-	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,.35);
+	box-shadow: 0 1px 4px rgba(0,0,0,.35);
 	background-color: #fff;
 }
 /* Results */
