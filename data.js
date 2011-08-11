@@ -27,6 +27,6 @@ function Keys(){
 }
 
 // Object
-var keys = Keys();
+var keys = new Keys();
 keys.init();
 
