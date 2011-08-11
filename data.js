@@ -18,10 +18,12 @@ function Keys(){
 		ctx.closePath();
 		ctx.fill();
 	}
-	vline = function(x, y, color) {
+	vline = function(x, w, color) {
+	
+		ctx.lineWidth = w;
 		ctx.beginPath();
-	    ctx.moveTo(10,0);
-	    ctx.lineTo(10,canvas.height());
+	    ctx.moveTo(x,0);
+	    ctx.lineTo(x,canvas.height());
 		ctx.strokeStyle = "black";
 	    ctx.stroke();
 	}
@@ -31,9 +33,15 @@ function Keys(){
 		$('#results').show();
 		
 		// print canvas
+		// Create horizontal lines
+		
+		// Create horizontal lines
+		for (var i=1; i < 6; i++) {
+			 vline((canvas.width()/12)*i, 6-i);
+		};
 		//loop through chords
-		circle(10, 50);
-	    
+		circle(canvas.width()/12, 50);
+	   
 	    console.log(canvas.height());
 		
 		
