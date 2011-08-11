@@ -41,8 +41,8 @@ function Keys(){
 		$('#results').show();
 		canvas.attr('height', $('#results').width()*2);
 		canvas.attr('width', $('#results').width());
-		var spacingH = canvas.height()%250;
-		var spacingV = canvas.width()%60;
+		var spacingH = canvas.height()/5;
+		var spacingV = canvas.width()/6;
 		// print canvas
 		// base 0
 		hline(0, canvas.width()*.1);
@@ -56,7 +56,7 @@ function Keys(){
 			 vline(spacingV*i, 6-i);
 		};
 		//loop through chords
-		circle(canvas.width()%60, 50);		
+		circle(spacingV, spacingH/2);		
 		
 	}
 	getSignature = function(id) {
