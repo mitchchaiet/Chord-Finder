@@ -32,6 +32,11 @@ header {
 	background-color: #fff;
 }
 
+/* Chords */
+#chord canvas {
+	border: 1px solid #999;
+}
+
 /* Footer */
 footer {
 	font-size: .75em;
