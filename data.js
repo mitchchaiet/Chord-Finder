@@ -15,6 +15,9 @@ function Keys(){
 		ctx.arc(x, y, canvas.height()*.01, 0, Math.PI*2, false); 
 		ctx.closePath();
 		ctx.fill();
+		ctx.lineWidth = 5;
+		ctx.strokeStyle = "black";
+		ctx.stroke();
 	}
 	vline = function(x, w, color) {
 		ctx.lineWidth = w;
@@ -28,7 +31,7 @@ function Keys(){
 		ctx.lineWidth = w;
 		ctx.beginPath();
 	    ctx.moveTo(0,y);
-	    ctx.lineTo(canvas.width(),y);
+	    ctx.lineTo(canvas.width()*2,y);
 		ctx.strokeStyle = "black";
 	    ctx.stroke();
 	}
@@ -36,7 +39,8 @@ function Keys(){
 		// Get api placement
 		
 		$('#results').show();
-		canvas.attr('height', canvas.width()*2);
+		canvas.attr('height', $('#results').width()*2);
+		canvas.attr('width', $('#results').width());
 		var spacingH = canvas.height()%250;
 		var spacingV = canvas.width()%60;
 		// print canvas
