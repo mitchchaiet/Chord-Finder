@@ -1,5 +1,3 @@
-
-
 jQuery(document).ready(function($) {
 	
 	var keys = [
@@ -304,6 +302,8 @@ jQuery(document).ready(function($) {
 	        ]
 	    }
 	];
-	console.log(keys[0].key);
+	$.each(keys, function(i, v) { 
+		$('#key ul').append('<li rel="'+i+'">'+v.key+'</li>');
+	});
 	//$('body').append(chords.key.F);
 });
