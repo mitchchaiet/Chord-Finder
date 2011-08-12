@@ -71,7 +71,7 @@ function Keys(){
 				$('#key ul').append('<li rel="'+i+'">'+v.key+'</li>');
 			});
 			// live event for keys
-			$('#key ul li').live('click', function(event) {
+			$('#key ul li').click(function() {
 				id = $(this).attr('rel');
 				// Build Grid 
 				buildGrid(keys[id]);
