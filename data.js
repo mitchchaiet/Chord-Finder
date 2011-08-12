@@ -81,16 +81,20 @@ function Keys(){
 				
 				console.log('Key ID: '+id);
 				console.log('Signature: '+getSignature(id));
-				console.log(canvas.height());
+				console.log($('#results').width());
+				console.log(canvas.width());
+				console.log(canvas.attr('rel'));
 			});
-			/*
+			
 			window.onresize = function() {
-//			    reference :http://stackoverflow.com/questions/1152203/centering-a-canvas/1646370#1646370
 				// resize canvas
 				// if canvas.rel
+				if (canvas.attr('rel')) {
 					// build grid with canvas.rel
+					buildGrid(keys[canvas.attr('rel')]);
+				};
 			}
-			*/
+
 		}
 		
 	}

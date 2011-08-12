@@ -16,7 +16,7 @@ header {
 /* Keys */
 #key {
 	margin: 0 auto;
-	width: 585px;
+	width: 60%;
 }
 #key ul li {
 	background-color: #e5e5e5;
@@ -41,7 +41,8 @@ header {
 #results {
 	display:none;
 	margin: 0 auto;
-	width: 500px;
+	width: 60%;
+	border: 1px solid #999;
 }
 #results canvas {
 	margin: 0 auto;
