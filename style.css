@@ -7,11 +7,17 @@ header {
 	padding: 20px;
 	color: #fff;
 }
+
 /* General */
 .instructions {
 	margin: .5em 0 1em;
 }
+
 /* Keys */
+#key {
+	margin: 0 auto;
+	width: 585px;
+}
 #key ul li {
 	background-color: #e5e5e5;
 	display: inline-block;
@@ -21,15 +27,25 @@ header {
 	line-height: 160%;
 	text-align: center;
 	margin: 5px;
-	-webkit-border-radius: .1em;
+	border-radius: .1em;
 	color: rgba(255,255,255,1);
 }
 #key ul li:hover {
 	cursor: pointer;
 	color: #00CCFF;
 	text-shadow: 0 0 .05em #0099CC;
-	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,.35);
+	box-shadow: 0 1px 4px rgba(0,0,0,.35);
 	background-color: #fff;
+}
+/* Results */
+#results {
+	display:none;
+	margin: 0 auto;
+	width: 500px;
+}
+#results canvas {
+	margin: 0 auto;
+	border: 1px solid #999;
 }
 
 /* Footer */
@@ -42,4 +58,16 @@ footer {
 }
 footer a {
 	color: #999;
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+}
+
+/* Wide Mobile */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
 }
