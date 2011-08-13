@@ -8,23 +8,20 @@ function Keys(){
 	var canvas = $('#results canvas');
 	var ctx = $(canvas)[0].getContext("2d");
 
-	// private functions
+	// fretboard and finger indicators
 	circle = function(x, y, color) {
-		ctx.fillStyle = 'grey';
+		ctx.fillStyle = '#0099FF';
 		ctx.beginPath();
-		ctx.arc(x, y, canvas.height()*.01, 0, Math.PI*2, false); 
+		ctx.arc(x, y, canvas.height()*.03, 0, Math.PI*2, false); 
 		ctx.closePath();
 		ctx.fill();
-		ctx.lineWidth = 5;
-		ctx.strokeStyle = "black";
-		ctx.stroke();
 	}
 	vline = function(x, w, color) {
 		ctx.lineWidth = w;
 		ctx.beginPath();
 	    ctx.moveTo(x,0);
 	    ctx.lineTo(x,canvas.height());
-		ctx.strokeStyle = "black";
+		ctx.strokeStyle = "#666";
 	    ctx.stroke();
 	}
 	hline = function(y, w, color) {
@@ -32,20 +29,22 @@ function Keys(){
 		ctx.beginPath();
 	    ctx.moveTo(0,y);
 	    ctx.lineTo(canvas.width()*2,y);
-		ctx.strokeStyle = "black";
+		ctx.strokeStyle = "#e5e5e5";
 	    ctx.stroke();
 	}
-	buildGrid = function(k) {
+	
+	// build out the fretboard
+	buildFrets = function(k) {
 		// Get api placement
 		
 		$('#results').show();
-		canvas.attr('height', $('#results').width()*2);
+		canvas.attr('height', $('#results').width()*1.618);
 		canvas.attr('width', $('#results').width());
-		var spacingH = canvas.height()/5;
+		var spacingH = canvas.height()/4;
 		var spacingV = canvas.width()/6;
 		// print canvas
 		// base 0
-		hline(0, canvas.width()*.1);
+		//hline(0, canvas.width()*.1);
 		
 		// Create horizontal lines
 		for (var i=1; i < 5; i++) {
@@ -72,11 +71,12 @@ function Keys(){
 			});
 			// live event for keys
 			$('#key ul li').click(function() {
+				$('#key').addClass('selected');
 				$('#key ul li').removeClass('active');
 				$(this).addClass('active');
 				id = $(this).attr('rel');
 				// Build Grid 
-				buildGrid(keys[id]);
+				buildFrets(keys[id]);
 				// assign rel as ref to resize canvas
 				canvas.attr('rel', id);
 				
@@ -93,7 +93,7 @@ function Keys(){
 				// if canvas.rel
 				if (canvas.attr('rel')) {
 					// build grid with canvas.rel
-					buildGrid(keys[canvas.attr('rel')]);
+					buildFrets(keys[canvas.attr('rel')]);
 				};
 			}
 

@@ -63,6 +63,18 @@ em {
 	text-shadow: 0 0 .05em #0099CC;
 	box-shadow: 0 1px 4px rgba(0,0,0,.35);
 	background-color: #fff;
+	background-image: -webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0.02, rgb(240,240,240)),
+	    color-stop(0.16, rgb(255,255,255))
+	);
+	background-image: -moz-linear-gradient(
+	    center bottom,
+	    rgb(240,240,240) 2%,
+	    rgb(255,255,255) 16%
+	);
 }
 /* Results */
 #results {
@@ -70,15 +82,20 @@ em {
 	margin: 0 auto;
 	width: 60%;
 	border: 1px solid #999;
+	box-shadow: 0 0 10px rgba(0,0,0,.35);
 }
 #results canvas {
 	margin: 0 auto;
-	border: 1px solid #999;
+	border: 1px solid black;
+	border-top: 1em solid black;
 }
+
+/* Fretboard */
+.fretboard {}
 
 /* Footer */
 footer {
-	background-color: rgba(255,255,255,.5);
+	background-color: rgba(255,255,255,.75);
 	font-size: .75em;
 	position: fixed;
 	padding: 20px;
