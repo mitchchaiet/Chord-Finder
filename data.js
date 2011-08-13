@@ -72,6 +72,8 @@ function Keys(){
 			});
 			// live event for keys
 			$('#key ul li').click(function() {
+				$('#key ul li').removeClass('active');
+				$(this).addClass('active');
 				id = $(this).attr('rel');
 				// Build Grid 
 				buildGrid(keys[id]);

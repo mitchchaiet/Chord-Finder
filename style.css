@@ -1,14 +1,31 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Serif:400italic);
+
 /* Reset */ 
 html,body,div,span,h1,h2,h3,h4,h5,h6,p,em,img,strong,ol,ul,li,form,label,header,footer { margin: 0; padding: 0; border: 0; outline: 0; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 100%; vertical-align: baseline; background: transparent; } body { line-height: 1 } header,footer { display: block } a { margin: 0; padding: 0; font-size: 100%; vertical-align: baseline; background: transparent; } input,select { vertical-align: middle }
 
 /* Header */
 header {
+	display: inline-block;
 	background-color: #000;
+	box-shadow: 0px 3px 5px rgba(0,0,0,.35);
 	padding: 20px;
 	color: #fff;
 }
+h1 {
+	padding: 0 30px;
+	line-height: 110%;
+}
+h1 em {
+	font-size: .95em;
+	display: block;
+	clear: left;
+}
 
 /* General */
+em {
+	font-family: 'PT Serif', serif;
+	font-weight: normal;
+}
 .instructions {
 	margin: .5em 0 1em;
 }
@@ -16,7 +33,15 @@ header {
 /* Keys */
 #key {
 	margin: 0 auto;
+	max-width: 585px;
 	width: 60%;
+	overflow: hidden;
+}
+#key .instructions {
+	text-align: center;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #999;
 }
 #key ul li {
 	background-color: #e5e5e5;
@@ -29,8 +54,10 @@ header {
 	margin: 5px;
 	border-radius: .1em;
 	color: rgba(255,255,255,1);
+	-webkit-transition: all .15s ease-in; 
 }
-#key ul li:hover {
+#key ul li:hover,
+#key ul li.active {
 	cursor: pointer;
 	color: #00CCFF;
 	text-shadow: 0 0 .05em #0099CC;
@@ -51,22 +78,46 @@ header {
 
 /* Footer */
 footer {
+	background-color: rgba(255,255,255,.5);
 	font-size: .75em;
 	position: fixed;
-	left: 20px;
-	bottom: 20px;
+	padding: 20px;
+	left: 0px;
+	bottom: 0px;
 	color: #999;
 }
 footer a {
 	color: #999;
 }
+footer a:hover {
+	color: black;
+	text-decoration: none;
+}
 
 /* Tablet */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+	#key {
+		width: 480px;
+	}
+	#key ul li {
+		font-size: 5em;
+		width: 150px;
+	}
+
 }
 
 /* Mobile */
 @media only screen and (max-width: 767px) {
+	header {
+		display: block;
+	}
+	#key {
+		width: 234px;
+	}
+	#key ul li {
+		font-size: 8em;
+		width: 224px;
+	}
 }
 
 /* Wide Mobile */
