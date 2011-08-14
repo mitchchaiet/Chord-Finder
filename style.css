@@ -26,8 +26,13 @@ em {
 	font-family: 'PT Serif', serif;
 	font-weight: normal;
 }
-.instructions {
+p {
 	margin: .5em 0 1em;
+	color: #666;
+	text-align: center;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #666;
 }
 
 /* Keys */
@@ -37,12 +42,7 @@ em {
 	width: 60%;
 	overflow: hidden;
 }
-#key .instructions {
-	text-align: center;
-	font-size: 1.2em;
-	font-weight: bold;
-	color: #999;
-}
+
 #key ul li {
 	background-color: #e5e5e5;
 	display: inline-block;
@@ -76,25 +76,98 @@ em {
 	    rgb(255,255,255) 16%
 	);
 }
+#selected-key {
+	background-color: #e5e5e5;
+	font-size: 6em;
+	font-weight: bold;
+	width: 185px;
+	line-height: 160%;
+	text-align: center;
+	margin: 0 auto;
+	border-radius: .1em; 
+	color: #00CCFF;
+	text-shadow: 0 0 .05em #0099CC;
+	box-shadow: 0 0 2px rgba(0,0,0,.35);
+	background-color: #fff;
+	background-image: -webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0.02, rgb(240,240,240)),
+	    color-stop(0.16, rgb(255,255,255))
+	);
+	background-image: -moz-linear-gradient(
+	    center bottom,
+	    rgb(240,240,240) 2%,
+	    rgb(255,255,255) 16%
+	);
+}
+button {
+	color: white;
+	font-size: 1.4em;
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	background-image: -webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0.37, rgb(49,180,236)),
+	    color-stop(0.69, rgb(0,204,255))
+	);
+	background-image: -moz-linear-gradient(
+	    center bottom,
+	    rgb(49,180,236) 37%,
+	    rgb(0,204,255) 69%
+	);
+	border: 1px solid #0099CC;
+	padding: .35em .75em;
+	border-radius: .25em;
+	cursor: pointer;
+}
+button:active {
+	background-image: -webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0.37, rgb(0,204,255)),
+	    color-stop(0.69, rgb(49,180,236))
+	);
+	background-image: -moz-linear-gradient(
+	    center bottom,
+	    rgb(0,204,255) 37%,
+	    rgb(49,180,236) 69%
+	);
+}
 /* Results */
 #results {
-	display:none;
 	margin: 0 auto;
+	max-width: 585px;
 	width: 60%;
-	border: 1px solid #999;
-	box-shadow: 0 0 10px rgba(0,0,0,.35);
+	padding: 0 0 50px;
 }
-#results canvas {
-	margin: 0 auto;
-	border: 1px solid black;
-	border-top: 1em solid black;
+ul.chord-set {
+	list-style: none;
 }
-
+ul.chord-set li {
+	display: inline-block;
+	margin: 3px;
+}
+.chord-holder {
+	background-color: #e5e5e5;
+	display: inline-block;
+	font-size: 6em;
+	font-weight: bold;
+	width: 185px;
+	line-height: 160%;
+	text-align: center;
+	border-radius: .1em;
+	color: rgba(255,255,255,1); 
+}
 /* Fretboard */
 .fretboard {
 	display:none;
 	margin: 0 auto;
-	width: 60%;
+	width: 76px;
 	border: 1px solid #999;
 	box-shadow: 0 0 10px rgba(0,0,0,.35);
 }
@@ -113,6 +186,9 @@ footer {
 	left: 0px;
 	bottom: 0px;
 	color: #999;
+}
+footer p {
+	font-weight: normal;
 }
 footer a {
 	color: #999;

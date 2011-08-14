@@ -14,16 +14,93 @@
 		<header>
 			<h1>Accompaniment <em>for Spanish Guitar</em></h1>
 		</header>
-		
-		<section id="key">
-			<p class="instructions">Select a key</p>
-			<ul></ul>
-		</section>
-		<section class="fretboard">
-			<canvas></canvas>
-		</section>
-		<section id="results">
-		</section>
+		<div id="main">
+			<section id="key">
+				<p>Select a key</p>
+				<ul></ul>
+			</section>
+			
+			<section class="fretboard">
+				<canvas></canvas>
+			</section>
+			
+			<section id="results">
+				<p>You selected</p>
+				<div id="selected-key">C</div>
+				<button>Select a different key</button>
+				<!-- Main Chords -->
+				<ul class="chord-set">
+					<li id="tonic">
+						<p>Tonic</p>
+						<div class="chord-holder">
+							<span class="chord">C</span>
+							<div class="fretboard"><canvas></canvas></div>
+						</div>
+					</li>
+					<li id="sub-dom">
+						<p>Sub Dominant</p>
+						<div class="chord-holder">
+							<span class="chord">F</span>
+							<div class="fretboard"><canvas></canvas></div>
+						</div>
+					</li>
+					<li id="dom">
+						<p>Dominant</p>
+						<div class="chord-holder">
+							<span class="chord">G7</span>
+							<div class="fretboard"><canvas></canvas></div>
+						</div>
+					</li>
+				</ul>
+				<!-- Accidental Chords -->
+				<ul class="chord-set">
+					<li id="dbl-dom">
+						<p>Double Dominant</p>
+						<div class="chord-holder">
+							<span class="chord">D7</span>
+							<div class="fretboard"><canvas></canvas></div>
+						</div>
+					</li>
+					<li id="tri-dom">
+						<p>Sub Dominant</p>
+						<div class="chord-holder">
+							<span class="chord">A7</span>
+							<div class="fretboard"><canvas></canvas></div>
+						</div>
+					</li>
+					<li id="dom-rel-minor">
+						<p>Dominant</p>
+						<div class="chord-holder">
+							<span class="chord">E7</span>
+							<div class="fretboard"><canvas></canvas></div>
+						</div>
+					</li>
+				</ul>
+				<!-- Relative Minor Chords -->
+				<p>Relative Minor Chords</p>
+				<ul class="chord-set">
+					<li>
+						<div class="chord-holder">
+							<span class="chord">Am</span>
+							<div class="fretboard"><canvas></canvas></div>
+						</div>
+					</li>
+					<li>
+						<div class="chord-holder">
+							<span class="chord">Dm</span>
+							<div class="fretboard"><canvas></canvas></div>
+						</div>
+					</li>
+					<li>
+						<div class="chord-holder">
+							<span class="chord">E7</span>
+							<div class="fretboard"><canvas></canvas></div>
+						</div>
+					</li>
+				</ul>
+				
+			</section>
+		</div>
 		<footer>
 			<p>Built by <a href="http://levibeach.com/">Levi Beach</a> &amp; <a href="http://iamfiscus.com/">JD Fiscus</p>
 		</footer>
