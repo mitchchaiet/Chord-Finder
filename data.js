@@ -32,6 +32,9 @@ function Keys(){
 		ctx.strokeStyle = "#e5e5e5";
 	    ctx.stroke();
 	}
+	g_y = function(i) {
+		return ((canvas.height()/4) * i) - ((canvas.height()/4)/2)
+	}
 	
 	// build out the fretboard
 	buildFrets = function(k) {
