@@ -9,14 +9,14 @@ function Keys(){
 	var ctx = $(canvas)[0].getContext("2d");
 
 	// fretboard and finger indicators
-	circle = function(x, y, color) {
+	finger = function(x, y, color) {
 		ctx.fillStyle = color;
 		ctx.beginPath();
 		ctx.arc(x, y, canvas.height()*.03, 0, Math.PI*2, false); 
 		ctx.closePath();
 		ctx.fill();
 	}
-	vline = function(x, w, color) {
+	guitarString = function(x, w, color) {
 		ctx.lineWidth = w;
 		ctx.beginPath();
 	    ctx.moveTo(x,0);
@@ -24,7 +24,7 @@ function Keys(){
 		ctx.strokeStyle = color;
 	    ctx.stroke();
 	}
-	hline = function(y, w, color) {
+	fret = function(y, w, color) {
 		ctx.lineWidth = w;
 		ctx.beginPath();
 	    ctx.moveTo(0,y);
@@ -32,7 +32,7 @@ function Keys(){
 		ctx.strokeStyle = color;
 	    ctx.stroke();
 	}
-	g_y = function(i) {
+	fingerY = function(i) {
 		return ((canvas.height()/4) * i) - ((canvas.height()/4)/2)
 	}
 	
@@ -47,18 +47,18 @@ function Keys(){
 		var spacingV = canvas.width()/6;
 		// print canvas
 		// base 0
-		//hline(0, canvas.width()*.1);
+		//fret(0, canvas.width()*.1);
 		
 		// Create horizontal lines
 		for (var i=1; i < 5; i++) {
-			 hline(spacingH*i, 1,"#e5e5e5");
+			 fret(spacingH*i, 1,"#e5e5e5");
 		};
 		// Create vertical lines
 		for (var i=1; i < 6; i++) {
-			 vline(spacingV*i, 6-i,"#666");
+			 guitarString(spacingV*i, 6-i,"#666");
 		};
 		//loop through chords
-		circle(spacingV, (spacingH/2.5)*8 + canvas.width()*.1,"#09f");		
+		finger(spacingV, (spacingH/2.5)*8 + canvas.width()*.1,"#09f");		
 		
 	}
 	getSignature = function(id) {
