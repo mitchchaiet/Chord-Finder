@@ -43,22 +43,24 @@ function Keys(){
 		$('.fretboard').show();
 		canvas.attr('height', $('.fretboard').width()*1.618);
 		canvas.attr('width', $('.fretboard').width());
-		var spacingH = canvas.height()/4;
-		var spacingV = canvas.width()/6;
+		var fretHeight = canvas.height()/4;
+		var stringSpace = canvas.width()/6;
 		// print canvas
 		// base 0
 		//fret(0, canvas.width()*.1);
 		
 		// Create horizontal lines
 		for (var i=1; i < 5; i++) {
-			 fret(spacingH*i, 1,"#e5e5e5");
+			 fret(fretHeight*i, 1,"#e5e5e5");
 		};
 		// Create vertical lines
 		for (var i=1; i < 6; i++) {
-			 guitarString(spacingV*i, 6-i,"#666");
+			 guitarString(stringSpace*i, 6-i,"#666");
 		};
 		//loop through chords
-		finger(spacingV, (spacingH/2.5)*8 + canvas.width()*.1,"#09f");		
+		for (var i=1; i < 6; i++) {
+			finger(stringSpace*i, fingerY(3),"#09f");	
+		}	
 		
 	}
 	getSignature = function(id) {
