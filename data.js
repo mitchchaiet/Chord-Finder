@@ -58,7 +58,19 @@ function Keys(){
 			 guitarString(spacingV*i, 6-i,"#666");
 		};
 		//loop through chords
-		finger(spacingV, (spacingH/2.5)*8 + canvas.width()*.1,"#09f");		
+		var api_url = 'http://pargitaru.co.cc/api/?request=chords&chord='+k.key;
+		console.log(api_url);
+		$.get(api_url, function(data) {
+			console.log(data.chords[0]);
+			$.each(data.chords[0], function(i, v) { 
+				console.log(i);
+				console.log(strings[0][i]);
+				console.log(v);
+				finger(spacingV*strings[0][i], (spacingH/2)*v,"#09f");		
+				
+			});
+			
+		},'jsonp');
 		
 	}
 	getSignature = function(id) {
@@ -83,12 +95,13 @@ function Keys(){
 				// assign rel as ref to resize canvas
 				canvas.attr('rel', id);
 				
-				
+				/*
 				console.log('Key ID: '+id);
 				console.log('Signature: '+getSignature(id));
 				console.log($('.fretboard').width());
 				console.log(canvas.width());
 				console.log(canvas.attr('rel'));
+				*/
 			});
 			
 			window.onresize = function() {
