@@ -66,7 +66,9 @@ function Keys(){
 				console.log(i);
 				console.log(strings[0][i]);
 				console.log(v);
-				finger(stringSpace*strings[0][i], (fretHeight/2)*v,"#09f");		
+				if(v!=0) {
+					finger(stringSpace*strings[0][i], fingerY(v),"#09f");
+				}		
 				
 			});
 			
