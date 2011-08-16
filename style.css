@@ -76,14 +76,18 @@ p {
 	    rgb(255,255,255) 16%
 	);
 }
+#user-selection {
+	text-align: center;
+	margin: 0 auto 2em;
+}
 #selected-key {
 	background-color: #e5e5e5;
-	font-size: 6em;
+	font-size: 3em;
 	font-weight: bold;
-	width: 185px;
+	width: 100px;
 	line-height: 160%;
 	text-align: center;
-	margin: 0 auto;
+	margin: .5em auto;
 	border-radius: .1em; 
 	color: #00CCFF;
 	text-shadow: 0 0 .05em #0099CC;
@@ -166,15 +170,13 @@ ul.chord-set li {
 /* Fretboard */
 .fretboard {
 	display:none;
+	background-color: #fff;
 	margin: 0 auto;
 	width: 76px;
-	border: 1px solid #999;
-	box-shadow: 0 0 10px rgba(0,0,0,.35);
-}
-.fretboard canvas {
-	margin: 0 auto;
+	height: 124px;
 	border: 1px solid black;
-	border-top: 1em solid black;
+	border-top: 12px solid black;
+	box-shadow: 0 0 10px rgba(0,0,0,.35);
 }
 
 /* Footer */
