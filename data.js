@@ -53,9 +53,9 @@ function Keys(){
 			modf="&modf="+escape(m);
 		}
 		var api_url = 'http://pargitaru.co.cc/api/?request=chords&chord='+escape(c)+modf;
-		console.log(api_url);
+		//console.log(api_url);
 		$.get(api_url, function(data) {
-			console.log(data.chords[0]);
+			//console.log(data.chords[0]);
 			// Create horizontal lines
 			for (var i=1; i < 8; i++) {
 				 fret(fretHeight*i, 1,"#ccc",me);
@@ -83,9 +83,17 @@ function Keys(){
 			$('#preloader').fadeOut('fast');
 		}
 	}
-	
+	center_preloader = function() {  
+	    var winH = $(window).height();
+	    var winW = $(window).width() - 42;
+	    var m1 =  (winH/2) - ($('#preloader').height()/2);
+	    var pre_top = $(document).scrollTop() + m1;    
+	    var pre_left = (winW/2) - ($('#preloader').width()/2); 
+	    $('#preloader').css({top:pre_top, left:pre_left});
+	}
 	return {
 		init: function(){
+			center_preloader();
 			loading(true);
 			// create keys
 			$.each(keys, function(i, v) { 
@@ -127,16 +135,18 @@ function Keys(){
 				$('#key').toggle();
 				$('#results').toggle();
 			});
-			/*
+			
 			window.onresize = function() {
+				center_preloader();
 				// resize canvas
 				// if canvas.rel
+				/*
 				if (canvas.attr('rel')) {
 					// build grid with canvas.rel
 					buildFrets(keys[canvas.attr('rel')]);
 				};
+				*/
 			}
-			*/
 		}
 		
 	}
