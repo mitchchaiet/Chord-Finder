@@ -72,13 +72,27 @@ function Keys(){
 		},'jsonp');
 		
 	}
-	getSignature = function(id) {
-		return keys[id].signature;
+	
+	// If something's loading, show the dang preloader, silly! For your health...
+	loading = function(active) {
+		if (active) {
+			$('#preloader').fadeIn('fast');
+		} else {
+			$('#preloader').fadeOut('fast');
+		}
 	}
-	// ...a sloppy preloader
+	center_preloader = function() {  
+	    var winH = $(window).height();
+	    var winW = $(window).width() - 42;
+	    var m1 =  (winH/2) - ($('#preloader').height()/2);
+	    var pre_top = $(document).scrollTop() + m1;    
+	    var pre_left = (winW/2) - ($('#preloader').width()/2); 
+	    $('#preloader').css({top:pre_top, left:pre_left});
+	}
 	
 	return {
 		init: function(){
+			center_preloader();
 			
 			loading(true);
 			// create keys
@@ -86,6 +100,7 @@ function Keys(){
 				$('#key ul').append('<li rel="'+i+'">'+v.key+'</li>');
 			});
 			loading(false);
+			
 			// live event for keys
 			$('#key ul li').click(function() {
 				// hide/show next screen
@@ -138,25 +153,9 @@ function Keys(){
 	}
 	
 }
-// If something's loading, show the dang preloader, silly! For your health...
-loading = function(active) {
-	if (active) {
-		$('#preloader').fadeIn('fast');
-	} else {
-		$('#preloader').fadeOut('fast');
-	}
-}
-center_preloader = function() {  
-    var winH = $(window).height();
-    var winW = $(window).width() - 42;
-    var m1 =  (winH/2) - ($('#preloader').height()/2);
-    var pre_top = $(document).scrollTop() + m1;    
-    var pre_left = (winW/2) - ($('#preloader').width()/2); 
-    $('#preloader').css({top:pre_top, left:pre_left});
-}
-// Center the preloader
-center_preloader();
+
 // Object
 var keys = new Keys();
+// Center the preloader
 keys.init();
 
