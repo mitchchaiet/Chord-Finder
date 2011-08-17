@@ -39,19 +39,13 @@ function Keys(){
 	
 	// build out the fretboard
 	buildFrets = function(c,m,k) {
-		// Get api placement
-		
-		$('.fretboard').show();
+
+		//$('.fretboard').show();
 		canvas.attr('height', $('.fretboard').height());
 		canvas.attr('width', $('.fretboard').width());
 		var fretHeight = canvas.height()/8;
 		var stringSpace = canvas.width()/7;
 		var me = k;
-		// print canvas
-		// base 0
-		//fret(0, canvas.width()*.1);
-		
-		
 		//loop through chords
 		if (!m) {
 			modf="";
@@ -70,36 +64,47 @@ function Keys(){
 			for (var i=1; i < 7; i++) {
 				 guitarString(stringSpace*i, 4-i,"#666",me);
 			};
-			$.each(data.chords[0], function(i, v) { 
-				//console.log(i);
-				//console.log(strings[0][i]);
-				//console.log(v);
+			$.each(data.chords[0], function(i, v) {
 				if(v!=0) {
 					finger(stringSpace*strings[0][i], fingerY(v),"#09f",me);
-				}		
-				
+				}
 			});
-			
-			
 		},'jsonp');
 		
 	}
 	getSignature = function(id) {
 		return keys[id].signature;
 	}
+	// ...a sloppy preloader
+	loading = function(active) {
+		if (active) {
+			$('#preloader').fadeIn('fast');
+		} else {
+			$('#preloader').fadeOut('fast');
+		}
+	}
 	
 	return {
 		init: function(){
-			
+			loading(true);
 			// create keys
 			$.each(keys, function(i, v) { 
 				$('#key ul').append('<li rel="'+i+'">'+v.key+'</li>');
 			});
+			loading(false);
 			// live event for keys
 			$('#key ul li').click(function() {
+				// hide/show next screen
+				loading(true);
+				$('#key').toggle();
+				$('#results').toggle();
+				// Take selected key and place it as selected on the next screen
+				$('#selected-key').html($(this).text());
+				// make this key selected
 				$('#key').addClass('selected');
 				$('#key ul li').removeClass('active');
 				$(this).addClass('active');
+				// set key id
 				id = $(this).attr('rel');
 				//Major Chords
 				buildFrets(keys[id].major_chords[0].tonic[0].chord,keys[id].major_chords[0].tonic[0].modf,0);
@@ -113,17 +118,14 @@ function Keys(){
 				buildFrets(keys[id].relative_minor_chords[0].minor0[0].chord,keys[id].relative_minor_chords[0].minor0[0].modf,6);
 				buildFrets(keys[id].relative_minor_chords[0].minor1[0].chord,keys[id].relative_minor_chords[0].minor1[0].modf,7);
 				buildFrets(keys[id].relative_minor_chords[0].minor2[0].chord,keys[id].relative_minor_chords[0].minor2[0].modf,8);
-				//console.log(keys[id].major_chords[0].tonic[0].chord);
 				// assign rel as ref to resize canvas
 				canvas.attr('rel', id);
-				
-				/*
-				console.log('Key ID: '+id);
-				console.log('Signature: '+getSignature(id));
-				console.log($('.fretboard').width());
-				console.log(canvas.width());
-				console.log(canvas.attr('rel'));
-				*/
+				loading(false);
+			});
+			$('button').click(function() {
+				// hide/show next screen
+				$('#key').toggle();
+				$('#results').toggle();
 			});
 			/*
 			window.onresize = function() {

@@ -144,6 +144,7 @@ button:active {
 }
 /* Results */
 #results {
+	display: none;
 	margin: 0 auto;
 	max-width: 585px;
 	width: 60%;
@@ -169,7 +170,6 @@ ul.chord-set li {
 }
 /* Fretboard */
 .fretboard {
-	display:none;
 	background-color: #fff;
 	margin: 0 auto;
 	width: 76px;
@@ -198,6 +198,14 @@ footer a {
 footer a:hover {
 	color: black;
 	text-decoration: none;
+}
+
+#preloader {
+	position: absolute;
+	background-color: black;
+	color: white;
+	padding: 20px;
+	border-radius: .25em;
 }
 
 /* Tablet */
