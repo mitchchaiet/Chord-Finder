@@ -44,6 +44,7 @@ p {
 }
 
 #key ul li {
+	cursor: pointer;
 	background-color: #e5e5e5;
 	display: inline-block;
 	font-size: 6em;
@@ -56,9 +57,8 @@ p {
 	color: rgba(255,255,255,1);
 	-webkit-transition: all .15s ease-in; 
 }
-#key ul li:hover,
+
 #key ul li.active {
-	cursor: pointer;
 	color: #00CCFF;
 	text-shadow: 0 0 .05em #0099CC;
 	box-shadow: 0 1px 4px rgba(0,0,0,.35);
