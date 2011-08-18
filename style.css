@@ -38,6 +38,7 @@ p {
 /* Keys */
 #key {
 	margin: 0 auto;
+	padding: 0 0 50px;
 	max-width: 591px;
 	width: 60%;
 	overflow: hidden;
