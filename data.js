@@ -19,20 +19,20 @@ function Keys(){
 		canvas[id].getContext("2d").fill();
 	}
 	guitarString = function(x, w, color, id) {
-		$(canvas)[id].getContext("2d").lineWidth = w;
-		$(canvas)[id].getContext("2d").beginPath();
-	    $(canvas)[id].getContext("2d").moveTo(x,0);
-	    $(canvas)[id].getContext("2d").lineTo(x,canvas.height());
-		$(canvas)[id].getContext("2d").strokeStyle = color;
-	    $(canvas)[id].getContext("2d").stroke();
+		canvas[id].getContext("2d").lineWidth = w;
+		canvas[id].getContext("2d").beginPath();
+	    canvas[id].getContext("2d").moveTo(x,0);
+	    canvas[id].getContext("2d").lineTo(x,canvas.height());
+		canvas[id].getContext("2d").strokeStyle = color;
+	    canvas[id].getContext("2d").stroke();
 	}
 	fret = function(y, w, color, id) {
-		$(canvas)[id].getContext("2d").lineWidth = w;
-		$(canvas)[id].getContext("2d").beginPath();
-	    $(canvas)[id].getContext("2d").moveTo(0,y);
-	    $(canvas)[id].getContext("2d").lineTo(canvas.width()*2,y);
-		$(canvas)[id].getContext("2d").strokeStyle = color;
-	    $(canvas)[id].getContext("2d").stroke();
+		canvas[id].getContext("2d").lineWidth = w;
+		canvas[id].getContext("2d").beginPath();
+	    canvas[id].getContext("2d").moveTo(0,y);
+	    canvas[id].getContext("2d").lineTo(canvas.width()*2,y);
+		canvas[id].getContext("2d").strokeStyle = color;
+	    canvas[id].getContext("2d").stroke();
 	}
 	fingerY = function(i) {
 		return ((canvas.height()/8) * i) - ((canvas.height()/8)/2);
@@ -85,8 +85,6 @@ function Keys(){
 				});
 			},'jsonp');
 		};
-		
-		
 	}
 	
 	// If something's loading, show the dang preloader, silly! For your health...

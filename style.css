@@ -37,7 +37,7 @@ p {
 
 /* Keys */
 #key {
-	margin: 0 auto;
+	margin: 1em auto;
 	padding: 0 0 50px;
 	max-width: 591px;
 	width: 60%;
@@ -155,11 +155,14 @@ button:active {
 }
 ul.chord-set {
 	list-style: none;
+	margin: 0 auto;
+	text-align: center;
 }
 ul.chord-set li {
 	display: inline-block;
 	margin: 3px;
 	width: 185px;
+	-webkit-transition: all .15s ease-in;
 }
 .chord-holder {
 	background-color: #e5e5e5;
@@ -170,7 +173,8 @@ ul.chord-set li {
 	line-height: 160%;
 	text-align: center;
 	border-radius: .1em;
-	color: rgba(255,255,255,1); 
+	color: rgba(255,255,255,1);
+	-webkit-transition: all .15s ease-in; 
 }
 /* Fretboard */
 .fretboard {
@@ -221,7 +225,12 @@ footer a:hover {
 		font-size: 5em;
 		width: 150px;
 	}
-
+	ul.chord-set li {
+	width: 145px;
+	}
+	.chord-holder {
+		width: 145px;
+	}
 }
 
 /* Mobile */
@@ -236,6 +245,14 @@ footer a:hover {
 		font-size: 8em;
 		width: 224px;
 	}
+	button {
+		font-size: 1.2em;
+	}
+	ul.chord-set li {
+		display: block;
+		margin: 0 auto;
+	}
+	
 }
 
 /* Wide Mobile */
