@@ -143,6 +143,12 @@ function Keys(){
 
 				loading(false);
 			});
+			
+			$('ul.chord-set li').click(function(){
+				$(this).find('.chord').toggleClass('hidden');
+				$(this).find('.fretboard').toggleClass('visible');
+			});
+			
 			$('button').click(function() {
 				// hide/show next screen
 				$('#key').toggle();

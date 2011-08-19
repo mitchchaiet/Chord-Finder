@@ -159,6 +159,7 @@ ul.chord-set {
 	text-align: center;
 }
 ul.chord-set li {
+	cursor: pointer;
 	display: inline-block;
 	margin: 3px;
 	width: 185px;
@@ -174,10 +175,24 @@ ul.chord-set li {
 	text-align: center;
 	border-radius: .1em;
 	color: rgba(255,255,255,1);
-	-webkit-transition: all .15s ease-in; 
+	-webkit-transition: all .15s ease-in;
+	height: 153px;
+	overflow: hidden;
+	position: relative; 
+}
+.chord {
+	-webkit-transition: all .15s ease-in;
+	position: absolute;
+	direction: block;
+	width: 185px;
+}
+.chord.hidden {
+	left: -185px;
 }
 /* Fretboard */
 .fretboard {
+	-webkit-transition: all .15s ease-in;
+	position: absolute;
 	background-color: #fff;
 	margin: 0 auto;
 	width: 76px;
@@ -185,8 +200,13 @@ ul.chord-set li {
 	border: 1px solid black;
 	border-top: 12px solid black;
 	box-shadow: 0 0 10px rgba(0,0,0,.35);
+	top: 10px;
+	left: 200px;
 }
-
+.fretboard.visible {
+	top: 10px;
+	left: 52px;
+}
 /* Footer */
 footer {
 	background-color: rgba(255,255,255,.75);
@@ -230,6 +250,9 @@ footer a:hover {
 	}
 	.chord-holder {
 		width: 145px;
+	}
+	.fretboard {
+		left: 32px;
 	}
 }
 
