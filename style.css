@@ -40,7 +40,6 @@ p {
 	margin: 1em auto;
 	padding: 0 0 50px;
 	max-width: 591px;
-	width: 60%;
 	overflow: hidden;
 }
 
@@ -150,7 +149,6 @@ button:active {
 	display: none;
 	margin: 0 auto;
 	max-width: 585px;
-	width: 60%;
 	padding: 0 0 50px;
 }
 ul.chord-set {
@@ -178,13 +176,18 @@ ul.chord-set li {
 	-webkit-transition: all .15s ease-in;
 	height: 153px;
 	overflow: hidden;
-	position: relative; 
+	position: relative;
+	 
 }
 .chord {
+	font-size: .7em;
 	-webkit-transition: all .15s ease-in;
 	position: absolute;
 	direction: block;
 	width: 185px;
+	top: 0;
+	left: 0;
+	
 }
 .chord.hidden {
 	left: -185px;
@@ -251,7 +254,17 @@ footer a:hover {
 	.chord-holder {
 		width: 145px;
 	}
+	.chord {
+		font-size: .6em;
+		width: 145px;
+	}
+	.chord.hidden {
+		left: -145px;
+	}
 	.fretboard {
+		left: 150px;
+	}
+	.fretboard.visible {
 		left: 32px;
 	}
 }
@@ -262,18 +275,18 @@ footer a:hover {
 		display: block;
 	}
 	#key {
-		width: 234px;
+		width: 202px;
 	}
 	#key ul li {
-		font-size: 8em;
-		width: 224px;
+		font-size: 6em;
+		width: 185px;
 	}
 	button {
-		font-size: 1.2em;
+		font-size: 1em;
 	}
 	ul.chord-set li {
 		display: block;
-		margin: 0 auto;
+		margin: 10px auto;
 	}
 	
 }

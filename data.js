@@ -124,6 +124,8 @@ function Keys(){
 				loading(true);
 				$('#key').toggle();
 				$('#results').toggle();
+				$('.chord').removeClass('hidden');
+				$('.fretboard').removeClass('visible');
 				// Take selected key and place it as selected on the next screen
 				$('#selected-key').html($(this).text());
 				// make this key selected
