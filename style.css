@@ -181,7 +181,7 @@ ul.chord-set li {
 }
 .chord {
 	font-size: .7em;
-	-webkit-transition: all 1s ease-in-out;
+	-webkit-transition: all .25s ease-in-out;
 	position: absolute;
 	direction: block;
 	width: 185px;
@@ -194,7 +194,7 @@ ul.chord-set li {
 }
 /* Fretboard */
 .fretboard {
-	-webkit-transition: all 1s ease-in-out;
+	-webkit-transition: all .25s ease-in-out;
 	position: absolute;
 	background-color: #fff;
 	margin: 0 auto;
