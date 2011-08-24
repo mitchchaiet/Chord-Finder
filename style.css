@@ -56,7 +56,7 @@ p {
 	border-radius: .1em;
 	border: 1px solid #e5e5e5;
 	color: rgba(255,255,255,1);
-	-webkit-transition: all .15s ease-in; 
+	-webkit-transition: all .15s ease-in-out; 
 }
 
 #key ul li.active {
@@ -147,7 +147,7 @@ button:active {
 /* Results */
 #results {
 	display: none;
-	margin: 0 auto;
+	margin: 1em auto;
 	max-width: 585px;
 	padding: 0 0 50px;
 }
@@ -161,7 +161,7 @@ ul.chord-set li {
 	display: inline-block;
 	margin: 3px;
 	width: 185px;
-	-webkit-transition: all .15s ease-in;
+	-webkit-transition: all .15s ease-in-out;
 }
 .chord-holder {
 	background-color: #e5e5e5;
@@ -173,7 +173,7 @@ ul.chord-set li {
 	text-align: center;
 	border-radius: .1em;
 	color: rgba(255,255,255,1);
-	-webkit-transition: all .15s ease-in;
+	-webkit-transition: all .15s ease-in-out;
 	height: 153px;
 	overflow: hidden;
 	position: relative;
@@ -181,7 +181,7 @@ ul.chord-set li {
 }
 .chord {
 	font-size: .7em;
-	-webkit-transition: all .15s ease-in;
+	-webkit-transition: all 1s ease-in-out;
 	position: absolute;
 	direction: block;
 	width: 185px;
@@ -194,7 +194,7 @@ ul.chord-set li {
 }
 /* Fretboard */
 .fretboard {
-	-webkit-transition: all .15s ease-in;
+	-webkit-transition: all 1s ease-in-out;
 	position: absolute;
 	background-color: #fff;
 	margin: 0 auto;

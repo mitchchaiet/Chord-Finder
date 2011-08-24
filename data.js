@@ -159,14 +159,7 @@ function Keys(){
 			
 			window.onresize = function() {
 				center_preloader();
-				// resize canvas
-				// if canvas.rel
-				/*
-				if (canvas.attr('rel')) {
-					// build grid with canvas.rel
-					buildFrets(keys[canvas.attr('rel')]);
-				};
-				*/
+				$('footer').css({'bottom':0});
 			}
 		}
 		

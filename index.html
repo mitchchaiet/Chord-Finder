@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang="en">
 
 <head>
-	<meta charset=utf-8 />
+	<meta charset="utf-8" />
 	<title>Chord Finder</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="viewport" content="width=720,maximum-scale=1.0" />
 	<link rel="stylesheet" href="style.css">
 </head>
@@ -14,20 +16,22 @@
 		<header>
 			<h1>Accompaniment <em>for Spanish Guitar</em></h1>
 		</header>
+		
 		<div id="main">
 			<section id="key">
 				<p>Select a key</p>
 				<ul></ul>
 			</section>
-			
-			
+			<!-- end #key -->
 			
 			<section id="results">
+			
 				<div id="user-selection">
 					<p>You selected</p>
 					<div id="selected-key"></div>
 					<button>Select a different key</button>
 				</div>
+				
 				<!-- Main Chords -->
 				<ul class="chord-set">
 					<li id="tonic">
@@ -52,6 +56,7 @@
 						</div>
 					</li>
 				</ul>
+				
 				<!-- Accidental Chords -->
 				<ul class="chord-set">
 					<li id="dbl-dom">
@@ -76,6 +81,7 @@
 						</div>
 					</li>
 				</ul>
+				
 				<!-- Relative Minor Chords -->
 				<p>Relative Minor Chords</p>
 				<ul class="chord-set">
@@ -100,14 +106,18 @@
 				</ul>
 				
 			</section>
+			<!-- end #results -->
+		
 		</div>
+		<!-- end #main -->
+		
 		<div id="preloader">Loading</div>
 		<footer>
 			<p>Built by <a href="http://levibeach.com/">Levi Beach</a> &amp; <a href="http://iamfiscus.com/">JD Fiscus</p>
 		</footer>
 	
 	</div>
-	
+	<!-- end #container -->
 	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.min.js"></script>
 	<script src="http://cdn.ecsstender.org/lib/latest/min/eCSStender.js"></script>
 	<!--<script src=" http://cdn.ecsstender.org/ext/CSS3-grid-alignment/latest/min/eCSStender.CSS3-grid-alignment.js"></script>-->
