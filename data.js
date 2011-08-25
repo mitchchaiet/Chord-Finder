@@ -11,6 +11,15 @@ function Keys(){
 	//get a reference to the canvas
 	var canvas = $('.fretboard canvas');
 	
+	// build complete
+	buildComplete = function(){
+		center_preloader();
+		
+		var ready = $('.fretboard canvas.ready').length;
+		if (ready == canvas.length) {
+			loading(false);
+		};
+	}
 
 	// fretboard and finger indicators
 	finger = function(x, y, color, id) {
@@ -51,7 +60,7 @@ function Keys(){
 		var me = k;
 
 		if (sessionStorage.getItem(id+'-'+n) && use_storage) {
-			console.log(JSON.parse(sessionStorage.getItem(id+'-'+n)));
+//			console.log(JSON.parse(sessionStorage.getItem(id+'-'+n)));
 
 			$.each(JSON.parse(sessionStorage.getItem(id+'-'+n)), function(i, v) {
 				if(v!=0) {
@@ -63,12 +72,12 @@ function Keys(){
 			var modf = (m) ? "&modf="+escape(m) : "";
 			// api url
 			var api_url = 'http://pargitaru.co.cc/api/?request=chords&chord='+escape(c)+modf;
-			console.log(api_url);
+//			console.log(api_url);
 			$.get(api_url, function(data) {
 				//console.log(data.chords[0])
 				// set storage
 				sessionStorage.setItem(id+'-'+n, JSON.stringify(data.chords[0]));
-				console.log(JSON.parse(sessionStorage.getItem(id+'-'+n)));
+//				console.log(JSON.parse(sessionStorage.getItem(id+'-'+n)));
 				
 				// Create horizontal lines
 				for (var i=1; i < 8; i++) {
@@ -85,8 +94,13 @@ function Keys(){
 						finger(stringSpace*strings[0][i], fingerY(v),"#09f", me);
 					}
 				});
+				// change canvas to ready
+				$('.fretboard canvas:eq('+k+')').addClass('ready');
+				buildComplete();
+				
 			},'jsonp');
 		};
+		
 	}
 	
 	// If something's loading, show the dang preloader, silly! For your health...
@@ -143,7 +157,7 @@ function Keys(){
 					$('.chord:eq('+i+')').html(keys[id].chords[i].chord+modifiers[keys[id].chords[i].modf]);
 				}
 
-				loading(false);
+				
 			});
 			
 			$('ul.chord-set li').click(function(){
