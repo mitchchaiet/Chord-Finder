@@ -118,7 +118,7 @@ function Keys(){
 	    var winH = $(window).height();
 	    var winW = $(window).width() - 42;
 	    var bgH = $(document).height();
-	    var m1 =  (winH/2) - ($('#preloader').height()/2);
+	    var m1 =  (winH/2) - $('#preloader').height();
 	    var pre_top = $(document).scrollTop() + m1;    
 	    var pre_left = (winW/2) - ($('#preloader').width()/2); 
 	    $('#preloader-bg').css({height:bgH, width:winW}); 
