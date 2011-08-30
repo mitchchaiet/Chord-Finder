@@ -121,7 +121,7 @@ function Keys(){
 	    var m1 =  (winH/2) - ($('#preloader').height()/2);
 	    var pre_top = $(document).scrollTop() + m1;    
 	    var pre_left = (winW/2) - ($('#preloader').width()/2); 
-	    $('#preloader-bg').css({height:bgH, width:winH}); 
+	    $('#preloader-bg').css({height:bgH, width:winW}); 
 	    $('#preloader').css({top:pre_top, left:pre_left});
 	}
 	
