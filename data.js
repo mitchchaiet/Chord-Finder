@@ -107,17 +107,21 @@ function Keys(){
 	loading = function(active) {
 		center_preloader();
 		if (active) {
+			$('#preloader-bg').fadeIn('fast');
 			$('#preloader').fadeIn('fast');
 		} else {
+			$('#preloader-bg').fadeOut('fast');
 			$('#preloader').fadeOut('fast');
 		}
 	}
 	center_preloader = function() {  
 	    var winH = $(window).height();
 	    var winW = $(window).width() - 42;
+	    var bgH = $(document).height();
 	    var m1 =  (winH/2) - ($('#preloader').height()/2);
 	    var pre_top = $(document).scrollTop() + m1;    
 	    var pre_left = (winW/2) - ($('#preloader').width()/2); 
+	    $('#preloader-bg').css({height:bgH, width:winH}); 
 	    $('#preloader').css({top:pre_top, left:pre_left});
 	}
 	
@@ -160,7 +164,7 @@ function Keys(){
 				
 			});
 			
-			$('ul.chord-set li').click(function(){
+			$('ul.chord-set li .chord-holder').click(function(){
 				$(this).find('.chord').toggleClass('hidden');
 				$(this).find('.fretboard').toggleClass('visible');
 			});
