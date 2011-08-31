@@ -106,11 +106,11 @@ function Keys(){
 		$('html, body').animate({ scrollTop: 0 }, 0);
 		center_preloader();
 		if (active) {
-			$('#preloader-bg').show();
-			$('#preloader').show();
+			$('#preloader-bg').css({display:'inherit'});
+			$('#preloader').css({display:'inherit'});
 		} else {
-			$('#preloader-bg').hide();
-			$('#preloader').hide();
+			$('#preloader-bg').css({display:'none'});
+			$('#preloader').css({display:'none'});
 		}
 	}
 	center_preloader = function() {  
