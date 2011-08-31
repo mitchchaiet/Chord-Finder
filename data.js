@@ -13,7 +13,7 @@ function Keys(){
 	
 	// build complete
 	buildComplete = function(){
-		center_preloader();
+		//center_preloader();
 		
 		var ready = $('.fretboard canvas.ready').length;
 		if (ready == canvas.length) {
@@ -60,7 +60,7 @@ function Keys(){
 		var me = k;
 
 		if (sessionStorage.getItem(id+'-'+n) && use_storage) {
-//			console.log(JSON.parse(sessionStorage.getItem(id+'-'+n)));
+			//console.log(JSON.parse(sessionStorage.getItem(id+'-'+n)));
 
 			$.each(JSON.parse(sessionStorage.getItem(id+'-'+n)), function(i, v) {
 				if(v!=0) {
@@ -72,12 +72,10 @@ function Keys(){
 			var modf = (m) ? "&modf="+escape(m) : "";
 			// api url
 			var api_url = 'http://pargitaru.co.cc/api/?request=chords&chord='+escape(c)+modf;
-//			console.log(api_url);
 			$.get(api_url, function(data) {
-				//console.log(data.chords[0])
 				// set storage
 				sessionStorage.setItem(id+'-'+n, JSON.stringify(data.chords[0]));
-//				console.log(JSON.parse(sessionStorage.getItem(id+'-'+n)));
+				//console.log(JSON.parse(sessionStorage.getItem(id+'-'+n)));
 				
 				// Create horizontal lines
 				for (var i=1; i < 8; i++) {
@@ -105,20 +103,21 @@ function Keys(){
 	
 	// If something's loading, show the dang preloader, silly! For your health...
 	loading = function(active) {
+		$('html, body').animate({ scrollTop: 0 }, 0);
 		center_preloader();
 		if (active) {
-			$('#preloader-bg').fadeIn('fast');
-			$('#preloader').fadeIn('fast');
+			$('#preloader-bg').show();
+			$('#preloader').show();
 		} else {
-			$('#preloader-bg').fadeOut('fast');
-			$('#preloader').fadeOut('fast');
+			$('#preloader-bg').hide();
+			$('#preloader').hide();
 		}
 	}
 	center_preloader = function() {  
 	    var winH = $(window).height();
-	    var winW = $(window).width() - 42;
+	    var winW = $(window).width();
 	    var bgH = $(document).height();
-	    var m1 =  (winH/2) - ($('#preloader').height()*3);
+	    var m1 =  (winH/2) - ($('#preloader').height()/2);
 	    var pre_top = $(document).scrollTop() + m1;    
 	    var pre_left = (winW/2) - ($('#preloader').width()/2); 
 	    $('#preloader-bg').css({height:bgH, width:winW}); 
@@ -127,14 +126,10 @@ function Keys(){
 	
 	return {
 		init: function(){
-			center_preloader();
-			
-			loading(true);
 			// create keys
 			$.each(keys, function(i, v) { 
 				$('#key ul').append('<li rel="'+i+'">'+v.key+'</li>');
 			});
-			loading(false);
 			
 			// live event for keys
 			$('#key ul li').click(function() {
@@ -173,11 +168,11 @@ function Keys(){
 				// hide/show next screen
 				$('#key').toggle();
 				$('#results').toggle();
+				$('html, body').animate({ scrollTop: 0 }, 0);
 			});
 			
 			window.onresize = function() {
 				center_preloader();
-				$('footer').css({'bottom':0});
 			}
 		}
 		
