@@ -13,8 +13,6 @@ function Keys(){
 	
 	// build complete
 	buildComplete = function(){
-		//center_preloader();
-		
 		var ready = $('.fretboard canvas.ready').length;
 		if (ready == canvas.length) {
 			loading(false);
@@ -58,46 +56,38 @@ function Keys(){
 		var fretHeight = canvas.height()/8;
 		var stringSpace = canvas.width()/7;
 		var me = k;
-
-		if (sessionStorage.getItem(id+'-'+n) && use_storage) {
+		
+		// modifier
+		var modf = (m) ? "&modf="+escape(m) : "";
+		
+		// api url
+		var api_url = 'http://pargitaru.co.cc/api/?request=chords&chord='+escape(c)+modf;
+		
+		$.get(api_url, function(data) {
+			// set storage
+			sessionStorage.setItem(id+'-'+n, JSON.stringify(data.chords[0]));
 			//console.log(JSON.parse(sessionStorage.getItem(id+'-'+n)));
-
-			$.each(JSON.parse(sessionStorage.getItem(id+'-'+n)), function(i, v) {
+			
+			// Create horizontal lines
+			for (var i=1; i < 8; i++) {
+				fret(fretHeight*i, 1,"#ccc", me);
+			};
+			// Create vertical lines
+			for (var i=1; i < 7; i++) {
+				 guitarString(stringSpace*i, 4-i,"#666", me);
+			};
+			
+			//loop through chords
+			$.each(data.chords[0], function(i, v) {
 				if(v!=0) {
-					finger(stringSpace*strings[0][i], fingerY(v), "#09f", me);
+					finger(stringSpace*strings[0][i], fingerY(v),"#09f", me);
 				}
 			});
-		} else {	
-			// modifier
-			var modf = (m) ? "&modf="+escape(m) : "";
-			// api url
-			var api_url = 'http://pargitaru.co.cc/api/?request=chords&chord='+escape(c)+modf;
-			$.get(api_url, function(data) {
-				// set storage
-				sessionStorage.setItem(id+'-'+n, JSON.stringify(data.chords[0]));
-				//console.log(JSON.parse(sessionStorage.getItem(id+'-'+n)));
-				
-				// Create horizontal lines
-				for (var i=1; i < 8; i++) {
-					fret(fretHeight*i, 1,"#ccc", me);
-				};
-				// Create vertical lines
-				for (var i=1; i < 7; i++) {
-					 guitarString(stringSpace*i, 4-i,"#666", me);
-				};
-				
-				//loop through chords
-				$.each(data.chords[0], function(i, v) {
-					if(v!=0) {
-						finger(stringSpace*strings[0][i], fingerY(v),"#09f", me);
-					}
-				});
-				// change canvas to ready
-				$('.fretboard canvas:eq('+k+')').addClass('ready');
-				buildComplete();
-				
-			},'jsonp');
-		};
+			// change canvas to ready
+			$('.fretboard canvas:eq('+k+')').addClass('ready');
+			buildComplete();
+			
+		},'jsonp');
 		
 	}
 	
@@ -135,8 +125,8 @@ function Keys(){
 			$('#key ul li').click(function() {
 				// hide/show next screen
 				loading(true);
-				$('#key').toggle();
-				$('#results').toggle();
+				$('#key').css({display:'none'});
+				$('#results').css({display:'inherit'});
 				$('.chord').removeClass('hidden');
 				$('.fretboard').removeClass('visible');
 				// Take selected key and place it as selected on the next screen
@@ -166,8 +156,8 @@ function Keys(){
 			
 			$('button').click(function() {
 				// hide/show next screen
-				$('#key').toggle();
-				$('#results').toggle();
+				$('#key').css({display:'inherit'});
+				$('#results').css({display:'none'});
 				$('html, body').animate({ scrollTop: 0 }, 0);
 			});
 			

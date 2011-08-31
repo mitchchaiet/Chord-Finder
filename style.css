@@ -5,6 +5,16 @@ html,body,div,span,h1,h2,h3,h4,h5,h6,p,em,img,strong,ol,ul,li,form,label,header,
 	color: white;
 	background-color: rgba(0, 205, 255, 0.8);
 }
+::-webkit-scrollbar-thumb:vertical { 
+	height:10px; 
+	background-color: #000; 
+}
+::-webkit-scrollbar { 
+	width:5px; 
+	height:5px; 
+	background: #f0f0f0; 
+	margin-right:5px; 
+}
 
 /* Header */
 header {
