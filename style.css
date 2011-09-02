@@ -9,16 +9,15 @@ html,body {
 	background-color: rgba(0, 205, 255, 0.8);
 }
 ::-webkit-scrollbar-thumb:vertical { 
-	height:10px; 
-	background-color: #000; 
+    height:10px; 
+    background-color: #000; 
 }
 ::-webkit-scrollbar { 
-	width:5px; 
-	height:5px; 
-	background: #f0f0f0; 
-	margin-right:5px; 
+    width:5px; 
+    height:5px; 
+    background: #f0f0f0; 
+    margin-right:5px; 
 }
-
 /* Header */
 header {
 	display: inline-block;
@@ -204,7 +203,7 @@ ul.chord-set li {
 	font-size: .7em;
 	-webkit-transition: all .20s ease-in-out;
 	position: absolute;
-	direction: block;
+	display: block;
 	width: 185px;
 	top: 0;
 	left: 0;
@@ -263,7 +262,7 @@ footer a:hover {
 	padding: 20px;
 }
 #preloader-bg {
-	direction: none;
+	display: none;
 	position: absolute;
 	background-color: rgba(255,255,255,0.8);
 	top: 0;
