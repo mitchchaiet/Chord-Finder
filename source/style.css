@@ -40,6 +40,7 @@ h1 em {
 em {
 	font-family: Georgia, Times, serif;
 	font-weight: normal;
+	font-style: italic;
 }
 p {
 	margin: .5em 0 1em;
